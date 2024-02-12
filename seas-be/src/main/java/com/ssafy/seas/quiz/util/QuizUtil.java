@@ -82,6 +82,7 @@ public class QuizUtil {
         return selectedQuizInfo;
     }
 
+    // 힌트 사용 여부를 체크
     public void updateHintState(Integer memberId, Integer quizId){
         Map<Integer, QuizDto.QuizFactorDto> value = redisTemplate.opsForValue().get(memberId);
         String nestedKey = toKey(quizId);
@@ -92,6 +93,7 @@ public class QuizUtil {
         log.info("updateHintState : " + quizId + " || " + value.get(nestedKey).getHint());
     }
 
+    // 퀴즈가 맞았는지를 판별
     public void updateQuizState(Integer memberId, Integer quizId){
         Map<Integer, QuizDto.QuizFactorDto> value = redisTemplate.opsForValue().get(memberId);
 
@@ -186,9 +188,8 @@ public class QuizUtil {
     }
 
     // 저장 확인 완료
-    public void storeQuizToRedis(List<QuizDto.QuizFactorDto> quizInfoList){
+    public void storeQuizToRedis(Integer memberId, List<QuizDto.QuizFactorDto> quizInfoList){
 
-        Integer memberId = quizInfoList.get(0).getMemberId();
         Map<Integer, QuizDto.QuizFactorDto> map = new HashMap<>();
 
         for(QuizDto.QuizFactorDto quizInfo : quizInfoList) {

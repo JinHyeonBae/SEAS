@@ -2,6 +2,8 @@ package com.ssafy.seas.quiz.service;
 
 
 import com.ssafy.seas.member.util.MemberUtil;
+import com.ssafy.seas.quiz.constant.EasinessFactor;
+import com.ssafy.seas.quiz.constant.Interval;
 import com.ssafy.seas.quiz.dto.*;
 import com.ssafy.seas.quiz.repository.CorrectAnswerRepository;
 import com.ssafy.seas.quiz.repository.FactorRepository;
@@ -36,12 +38,29 @@ public class QuizService {
 
         List<QuizListDto.QuizInfo> quizInfoList = new ArrayList<>();
 
+        // factor 테이블에 아직 없을 시에는 interval, ef null
         List<QuizDto.QuizFactorDto> quizFactors = quizCustomRepository.findAllQuizInnerJoin(memberId, categoryId);
+        List<QuizDto.QuizWeightInfoDto> quizWeightInfos = new ArrayList<>();
 
-        List<QuizDto.QuizWeightInfoDto> quizWeightInfos =
+        // 아무런 문제도 안 풀었을 경우(=처음) or, 10개 미만으로 풀었을 경우, factor 정보가 없으므로 임의로 추가
+
+        if(quizFactors.size() < 10){
+            int requiredCount = 10 - quizFactors.size();
+            List<QuizDto.QuizInfoDto> quizInfos = quizCustomRepository.findQuizzesLimitedBy(requiredCount, categoryId);
+            log.info(">>>>>> QUIZINFO SIZE : " + quizInfos.size());
+            List<QuizDto.QuizFactorDto> temp =
+                    quizInfos.stream().map(dto -> new QuizDto.QuizFactorDto(memberId, dto.getQuizId(), dto.getQuiz(), dto.getHint(), Interval.FIRST.getValue(), EasinessFactor.MINIMUM.getValue())).collect(Collectors.toList());
+
+            quizFactors.addAll(temp);
+        }
+
+        quizWeightInfos.addAll(
                 quizFactors.stream().map(dto -> {
                     return new QuizDto.QuizWeightInfoDto(dto.getQuizId(), dto.getQuizInterval(), dto.getEf());
-                }).collect(Collectors.toList());
+                }).collect(Collectors.toList())
+        );
+
+        log.info(">>>>>>>>>> QUIZ_WEIGHT_INFO : " + quizWeightInfos.size());
 
         for(int i = 0; i < 10; i++) {
             double[][] prefixWeightList = quizUtil.getPrefixWeightArray(quizWeightInfos);
@@ -54,7 +73,7 @@ public class QuizService {
             quizInfoList.add(new QuizListDto.QuizInfo(quizId, quiz));
         }
 
-        quizUtil.storeQuizToRedis(quizFactors);
+        //quizUtil.storeQuizToRedis(quizFactors);
 
         return new QuizListDto.Response(quizInfoList);
     }
