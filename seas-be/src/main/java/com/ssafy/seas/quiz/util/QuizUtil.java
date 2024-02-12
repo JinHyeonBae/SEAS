@@ -68,7 +68,7 @@ public class QuizUtil {
         
         // 1.3 ~ max 구간의 랜덤값이 나옴
         double random = toFixed(Math.random() * (max - min) + min, 1);
-        log.info("RAMDON : {} ", random);
+        //log.info("RAMDON : {} ", random);
         int selectedQuizIndex = Arrays.binarySearch(weightArray, random);
 
         // binarySearch에서는 정확한 값이 아니면, 음수로 (- (이 값이 배열에 있을 시 위치할 인덱스 + 1))를 돌려주므로 절댓값 - 1으로 해준다.
@@ -98,6 +98,7 @@ public class QuizUtil {
         Map<Integer, QuizDto.QuizFactorDto> value = redisTemplate.opsForValue().get(memberId);
 
         String nestedKey = toKey(quizId);
+        log.info("MAP 출력 : " + value.toString());
         value.get(nestedKey).setIsCorrect(true);
 
         redisTemplate.opsForValue().set(memberId, value);
@@ -195,6 +196,7 @@ public class QuizUtil {
         for(QuizDto.QuizFactorDto quizInfo : quizInfoList) {
             Integer quizId = quizInfo.getQuizId();
             map.put(quizId, quizInfo);
+            log.info("저장되는 quizID : {}\n", quizId);
         }
 
         redisTemplate.opsForValue().set(memberId, map);

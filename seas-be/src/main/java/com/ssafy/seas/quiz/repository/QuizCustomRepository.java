@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static com.ssafy.seas.quiz.entity.QCardQuiz.cardQuiz;
 import static com.ssafy.seas.quiz.entity.QFactor.factor;
@@ -38,7 +39,7 @@ public class QuizCustomRepository{
                 .on(factor.cardQuiz.id.eq(cardQuiz.id))
                         .on(cardQuiz.quiz.id.eq(quiz.id))
                         //.fetchJoin()
-                .where(factor.member.id.eq(memberId.intValue()) ,quiz.category.id.eq(categoryId.intValue()))
+                .where(factor.member.id.eq(memberId.intValue()),quiz.category.id.eq(categoryId.intValue()))
                         .fetch();
 
 
@@ -54,7 +55,7 @@ public class QuizCustomRepository{
                 .select(new QQuizDto_QuizInfoDto(quiz.id, quiz.problem, quiz.hint))
                 .from(quiz)
                 .where(quiz.category.id.eq(categoryId.intValue()))
-                .limit(requiredCount).fetch();
+                .fetch();
     }
 
 
@@ -66,7 +67,9 @@ public class QuizCustomRepository{
                 .leftJoin(quizAnswer)
                 .on(quiz.id.eq(quizAnswer.quiz.id))
                 .where(quiz.id.eq(quizId))
-                .fetch();
+                .stream()
+                .map(ans -> ans.replaceAll("\s+", "").replaceAll("\t+", "").replaceAll(" ", "").toLowerCase().trim())
+                .collect(Collectors.toList());
 
     }
 
