@@ -16,20 +16,18 @@ public class QuizDto {
         private Double quizInterval;
         private Double ef;
 
-        private Integer cardQuizId;
-        private Integer memberId;
-
         private Integer quizId;
         private String quiz;
         private String hint;
+
+        private Integer memberId;
 
         private Boolean isCorrect = false;
         private Boolean isUsedHint = false;
 
         @QueryProjection
-        public QuizFactorDto(Integer memberId, Integer cardQuizId, Integer quizId, String quiz, String hint, Double quizInterval, Double ef){
+        public QuizFactorDto(Integer memberId, Integer quizId, String quiz, String hint, Double quizInterval, Double ef){
             this.memberId = memberId;
-            this.cardQuizId = cardQuizId;
             this.quizId = quizId;
             this.quiz = quiz;
             this.hint = hint;
@@ -52,8 +50,6 @@ public class QuizDto {
             return "QuizFactorDto{" +
                     "quizInterval=" + quizInterval +
                     ", ef=" + ef +
-                    ", cardQuizId=" + cardQuizId +
-                    ", memberId=" + memberId +
                     ", quizId=" + quizId +
                     ", quiz='" + quiz + '\'' +
                     ", hint='" + hint + '\'' +
@@ -63,7 +59,6 @@ public class QuizDto {
         }
     }
 
-    @RequiredArgsConstructor
     @Getter
     @Setter
     public static class QuizWeightInfoDto{
@@ -71,8 +66,27 @@ public class QuizDto {
         private final Double quizInterval;
         private final Double ef;
 
+        @QueryProjection
+        public QuizWeightInfoDto(Integer quizId, Double quizInterval, Double ef){
+            this.quizId = quizId;
+            this.quizInterval = quizInterval;
+            this.ef = ef;
+        }
     }
 
+    @Getter
+    public static class QuizInfoDto{
+        private Integer quizId;
+        private String quiz;
+        private String hint;
+
+        @QueryProjection
+        public QuizInfoDto(Integer quizId, String quiz, String hint){
+            this.quizId = quizId;
+            this.quiz = quiz;
+            this.hint = hint;
+        }
+    }
 
 
 
