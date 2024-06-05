@@ -125,11 +125,11 @@ https://lab.ssafy.com/s10-webmobile2-sub2/S10P12A609.git
 
 -   메인 페이지
 
-    ![메인페이지만](/images/메인페이지만.gif)
+    ![메인페이지만](/images/mainpage.gif)
 
 -   메뉴 선택 페이지
 
-    ![선택_페이지만](/images/선택_페이지만.gif)
+    ![선택_페이지만](/images/selectedPage.gif)
 
 -   로그인 / 회원가입 페이지
 
@@ -137,19 +137,19 @@ https://lab.ssafy.com/s10-webmobile2-sub2/S10P12A609.git
 
 -   카드 페이지
 
-    ![카드](/images/카드.gif)
+    ![카드](/images/card.gif)
 
 -   퀴즈 페이지
 
-    ![퀴즈1](/images/퀴즈1.gif)
+    ![퀴즈1](/images/quiz1.gif)
 
 -   랭크 페이지
 
-    ![랭킹페이지](/images/랭킹페이지.gif)
+    ![랭킹페이지](/images/rankings.gif)
 
 -   마이 페이지
 
-    ![마이페이지](/images/마이페이지.gif)
+    ![마이페이지](/images/mypage.gif)
 
 <br>
 
