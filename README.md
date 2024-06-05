@@ -133,7 +133,7 @@ https://lab.ssafy.com/s10-webmobile2-sub2/S10P12A609.git
 
 -   로그인 / 회원가입 페이지
 
-    ![auth관련](/images/auth관련.gif)
+    ![auth관련](/images/auth.gif)
 
 -   카드 페이지
 
