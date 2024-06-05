@@ -98,7 +98,7 @@ https://lab.ssafy.com/s10-webmobile2-sub2/S10P12A609.git
 
 ## 🌐 System Architecture
 
-![image](/uploads/e7f82f6ae13ab1861d7da5d7f6d30220/image.png)
+![image](/images/system_architecture.png)
 
 <br>
 
@@ -106,7 +106,7 @@ https://lab.ssafy.com/s10-webmobile2-sub2/S10P12A609.git
 
 ## 💾 ERD
 
-![image](/uploads/274e414254692c85b64461763568a983/image.png)
+![image](/images/erd.png)
 
 <br>
 
@@ -125,31 +125,31 @@ https://lab.ssafy.com/s10-webmobile2-sub2/S10P12A609.git
 
 -   메인 페이지
 
-    ![메인페이지만](/uploads/e38e5130687245be64f596aaf301978c/메인페이지만.gif){: width="1000" height="483"}
+    ![메인페이지만](/images/메인페이지만.gif)
 
 -   메뉴 선택 페이지
 
-    ![선택_페이지만](/uploads/a13dee1d830147678c8e3fba7459b397/선택_페이지만.gif){: width="1000" height="483"}
+    ![선택_페이지만](/images/선택_페이지만.gif)
 
 -   로그인 / 회원가입 페이지
 
-    ![auth관련](/uploads/44d82a68be6c682ca7e54b3079e2578e/auth관련.gif){: width="1000" height="483"}
+    ![auth관련](/images/auth관련.gif)
 
 -   카드 페이지
 
-    ![카드](/uploads/62afcd19a0dff56c657ca70a33763c7a/카드.gif){: width="1000" height="483"}
+    ![카드](/images/카드.gif)
 
 -   퀴즈 페이지
 
-    ![퀴즈1](/uploads/de495cb7b02f15aaf17e4532cfa9ca28/퀴즈1.gif){: width="1000" height="483"}
+    ![퀴즈1](/images/퀴즈1.gif)
 
 -   랭크 페이지
 
-    ![랭킹페이지](/uploads/71d756abe1b3cd3d8f873de810f4e6c4/랭킹페이지.gif){: width="1000" height="483"}
+    ![랭킹페이지](/images/랭킹페이지.gif)
 
 -   마이 페이지
 
-    ![마이페이지](/uploads/5ac55b25897ebf29315126b00697bc29/마이페이지.gif){: width="1000" height="483"}
+    ![마이페이지](/images/마이페이지.gif)
 
 <br>
 
