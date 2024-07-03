@@ -98,7 +98,7 @@ https://lab.ssafy.com/s10-webmobile2-sub2/S10P12A609.git
 
 ## 🌐 System Architecture
 
-![image](/images/system_architecture.png)
+<img width="850" alt="architecture" src="https://github.com/JinHyeonBae/SEAS/assets/47708313/af38c615-ea0d-4399-a549-58fa14f960b3">
 
 <br>
 
